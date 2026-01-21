@@ -42,10 +42,8 @@ def bootstrap_admin_user():
     )
 
     print("✔ Admin user created successfully")
-print("something :",os.getenv("DJANGO_BOOTSTRAP_SUPERUSER") == "1")
 
-if os.getenv("DJANGO_BOOTSTRAP_SUPERUSER") == "1":
-    bootstrap_admin_user()
+bootstrap_admin_user()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

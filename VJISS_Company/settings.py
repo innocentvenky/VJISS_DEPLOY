@@ -17,13 +17,14 @@ from datetime import date
 print("hello")
 def bootstrap_admin_user():
     from VJISS_APP.models import Create_User
-
+    print("VJISS")
     email = os.getenv("DJANGO_ADMIN_EMAIL")
     first_name = os.getenv("DJANGO_ADMIN_FIRST_NAME")
     phone = os.getenv("DJANGO_ADMIN_PHONE")
     dob = os.getenv("DJANGO_ADMIN_DOB")
     password = os.getenv("DJANGO_ADMIN_PASSWORD")
     print(email)
+    print("venky")
     if not all([email, password]):
         return
 
@@ -41,6 +42,7 @@ def bootstrap_admin_user():
     )
 
     print("✔ Admin user created successfully")
+print("something :",os.getenv("DJANGO_BOOTSTRAP_SUPERUSER") == "1")
 
 if os.getenv("DJANGO_BOOTSTRAP_SUPERUSER") == "1":
     bootstrap_admin_user()

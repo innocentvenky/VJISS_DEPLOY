@@ -14,7 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 import os
 from datetime import date
-
+print("hello")
 def bootstrap_admin_user():
     from VJISS_APP.models import Create_User
 
@@ -23,7 +23,7 @@ def bootstrap_admin_user():
     phone = os.getenv("DJANGO_ADMIN_PHONE")
     dob = os.getenv("DJANGO_ADMIN_DOB")
     password = os.getenv("DJANGO_ADMIN_PASSWORD")
-
+    print(email)
     if not all([email, password]):
         return
 
@@ -84,8 +84,7 @@ INSTALLED_APPS = [
     'VJISS_APP',  # YOU APPLICATION
     'rest_framework', # REST FRAMEWORKS,
     'corsheaders',#   corsheaders 'pip install djano-cors-headers'
-    'rest_framework_simplejwt', # Jwt tokens 
-    "VJISS_APP.apps.VjissAppConfig",
+    'rest_framework_simplejwt' # Jwt tokens 
 ]
 
 

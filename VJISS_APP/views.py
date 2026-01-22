@@ -38,7 +38,7 @@ from .serializers import About_Company_serializer
 
 # email servers
 
-from django.core.mail import send_mail,EmailMessage
+from .mail_services.brevo_service import send_brevo_email
 from django.conf import settings
 from rest_framework.views import APIView
 
@@ -368,13 +368,12 @@ class InternshipApplication(GenericAPIView):
         )
 
         # Send email (HTML + CC)
-        email = EmailMessage(
-            subject="  🎉 Internship Application Successful",
-            body=html_message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[user.email],
-            cc=["venkateshjaripiti123@gmail.com","hr@vjinnovative.co.in"],
-        )
+        email =send_brevo_email(
+    to_email=user.email,
+    subject="🎉 Internship Application Successful",
+    html_content=html_message,
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
+)
         email.content_subtype = "html"
         email.send(fail_silently=False)
 
@@ -455,13 +454,13 @@ class ModifyApplication(GenericAPIView,UpdateModelMixin):
             return  # ⛔ No email for other statuses
 
         # 📧 Send email
-        email = EmailMessage(
-            subject=subject,
-            body=html_message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[student_email],
-            cc=["venkateshjaripiti123@gmail.com","hr@vjinnovative.co.in"],
-        )
+        email = send_brevo_email(
+    to_email=student_email,
+    subject=subject,
+    html_content=html_message,
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
+)
+
         email.content_subtype = "html"
         email.send(fail_silently=False)
 
@@ -638,14 +637,13 @@ class StudentEnrollment(GenericAPIView,CreateModelMixin):
             student_name=f"{user.first_name} {user.last_name}",
             course_name=course_name
         )
-        email=EmailMessage(
-            subject="  🎉 Course Enrollment Successful",
-            body=html_message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[user.email],
-            cc=["venkateshjaripiti123@gmail.com","hr@vjinnovative.co.in"])
-        email.content_subtype="html"
-        email.send(fail_silently=False)
+        email=send_brevo_email(
+    to_email=user.email,
+    subject="🎉 Course Enrollment Successful",
+    html_content=html_message,
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
+)
+
         return Response(serializer.data,status=status.HTTP_201_CREATED)
 
 class StudentEnrollmentView(GenericAPIView,ListModelMixin):

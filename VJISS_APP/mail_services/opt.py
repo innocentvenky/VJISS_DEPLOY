@@ -82,7 +82,11 @@ class SendOtp(APIView):
                 "name": "VJ Innovative Software Solutions Pvt Ltd"
             },
             subject=subject,
-            html_content=html_content
+            html_content=html_content,
+             tags=["otp", "transactional"],
+             headers={
+            "X-Mailin-custom": "transactional"
+    }
         )
 
         try:

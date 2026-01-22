@@ -20,15 +20,25 @@ def send_brevo_email(
 
     email_data = sib_api_v3_sdk.SendSmtpEmail(
         to=[{"email": to_email}],
-        sender={"email": sender_email, "name": sender_name},
+        sender={
+            "email": sender_email,
+            "name": sender_name
+        },
         subject=subject,
         html_content=html_content,
         cc=[{"email": e} for e in (cc_emails or [])],
+
+        # 🔑 THIS IS THE IMPORTANT PART
+        tags=["otp", "transactional"],
+        headers={
+            "X-Mailin-custom": "transactional"
+        },
     )
 
     try:
         api_instance.send_transac_email(email_data)
         return True
+
     except ApiException as e:
         print("BREVO EMAIL ERROR:", e)
         return False

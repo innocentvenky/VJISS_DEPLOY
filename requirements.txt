@@ -1,6 +1,7 @@
 asgiref==3.11.0
 dj-database-url==3.1.0
-Django==6.0
+Django==4.2.11
+
 django-cors-headers==4.9.0
 django-redis==6.0.0
 djangorestframework==3.16.1
@@ -16,6 +17,6 @@ redis==7.1.0
 sqlparse==0.5.5
 tzdata==2025.3
 whitenoise==6.11.0
-sib-api-v3-sdk
-cloudinary
-django-cloudinary-storage
+sib-api-v3-sdk==7.6.0
+cloudinary==1.44.1
+django-cloudinary-storage==0.3.0

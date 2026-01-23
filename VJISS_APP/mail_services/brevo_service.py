@@ -26,7 +26,7 @@ def send_brevo_email(
             "name": sender_name,
         },
         "subject": subject,
-        "htmlContent": html_content,
+       "html_content": html_content, 
         "tags": ["otp", "transactional"],
         "headers": {
             "X-Mailin-custom": "transactional"

@@ -121,11 +121,13 @@ class NewBatchAdmin(admin.ModelAdmin):
         return obj.faculty.trainer_name
 admin.site.register(NewBatchs,NewBatchAdmin)
 class Student_EnrollmentAdmin(admin.ModelAdmin):
-    list_display=['student_name','course_name','enrollment_date', 'status','phone_number']
+    list_display=['student_name','course_name','enrollment_date', 'status','phone_number','email']
     def student_name(self, obj):
         return obj.student.first_name + ' ' + obj.student.last_name
     def phone_number(self, obj):
         return obj.student.phone_number
+    def email(self,obj):
+        return obj.student.email
     def course_name(self, obj):
         return obj.course.course_name
 admin.site.register(Student_Enrollment,Student_EnrollmentAdmin)

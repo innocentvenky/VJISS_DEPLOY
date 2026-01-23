@@ -37,15 +37,36 @@ class SendOtp(APIView):
 
         html_content = f"""
         <html>
-        <body style="font-family: Arial, sans-serif;">
-            <h2>OTP Verification</h2>
-            <p>Your verification code is:</p>
-            <div style="font-size:40px;font-weight:bold;">
-                {otp}
-            </div>
-            <p>This OTP is valid for <b>5 minutes</b>.</p>
-        </body>
-        </html>
+    <body style="font-family: Arial, sans-serif;">
+
+        <h2>OTP Verification</h2>
+
+        <p>Your verification code is:</p>
+
+        <div style="
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 8px;
+            color: #1e90ff;
+            background-color: #f0f6ff;
+            padding: 18px 28px;
+            border-radius: 8px;
+            display: inline-block;
+        ">
+            {otp}
+        </div>
+
+        <p style="margin-top: 20px;">
+            This OTP is valid for <b>5 minutes</b>.
+            Do not share this OTP with anyone.
+        </p>
+
+        <p>If this request was not made by you, please ignore this email.</p>
+
+        <p>Regards,<br><b>Support Team</b></p>
+
+    </body>
+    </html>
         """
 
         sent = brevo_service.send_brevo_email(   # ✅ FIX

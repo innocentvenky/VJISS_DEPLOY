@@ -66,7 +66,7 @@ from . models import Batch_Enrollment
 from . serializers import Batch_Enrollment_serializer
 
 #email serivices
-from .mail_services import ApplyInternship,rejectinternship,selectedinternship,EnrollCourse
+from .mail_services import ApplyInternship,rejectinternship,selectedinternship,EnrollCourse,Batch_enrolled
 
 
 

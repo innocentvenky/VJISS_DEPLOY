@@ -376,7 +376,7 @@ class InternshipApplication(GenericAPIView):
     to_email=user.email,
     subject="🎉 Internship Application Successful",
     html_content=html_message,
-    cc_mails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
+    cc_emails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
         email.content_subtype = "html"
         email.send(fail_silently=False)
@@ -462,7 +462,7 @@ class ModifyApplication(GenericAPIView,UpdateModelMixin):
     to_email=student_email,
     subject=subject,
     html_content=html_message,
-    cc_mails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
+    cc_emails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
 
         email.content_subtype = "html"
@@ -645,7 +645,7 @@ class StudentEnrollment(GenericAPIView,CreateModelMixin):
     to_email=user.email,
     subject="🎉 Course Enrollment Successful",
     html_content=html_message,
-    cc_mails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
+    cc_emails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
 
         return Response(serializer.data,status=status.HTTP_201_CREATED)
@@ -703,7 +703,7 @@ class BatchEnrollment(GenericAPIView,CreateModelMixin):
     to_email=user.email,
     subject="🎉 Course Enrollment Successful",
     html_content=html_message,
-    cc_mails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
+    cc_emails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
 
         return Response(serializer.data,status=status.HTTP_201_CREATED)

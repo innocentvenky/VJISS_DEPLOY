@@ -68,7 +68,7 @@ class SendOtp(APIView):
             to_email=email,
             subject=subject,
             html_content=html_content,
-            cc_emails=None   # OTP must NOT use CC
+            
         )
 
         if sent:

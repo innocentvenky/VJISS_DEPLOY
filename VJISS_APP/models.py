@@ -170,13 +170,13 @@ class NewBatchs(models.Model):
 
 
 
-#student enrollment.
-class Student_Enrollment(models.Model):
-    enrollment_id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
-    student=models.ForeignKey(Create_User,on_delete=models.CASCADE,related_name='enrolled_students')
-    course=models.ForeignKey(Courses_Model,on_delete=models.CASCADE,related_name='enrolled_courses')
-    enrollment_date=models.DateField(auto_now_add=True)
-    status_choices=[('Interested','Interested'),('NotInterested','NotInterested'),('Pending','Pending')]
-    status=models.CharField(max_length=20,choices=status_choices,default="Pending")
-    def __str__(self):
-        return str(self.enrollment_id)
+# #student enrollment.
+# class Student_Enrollment(models.Model):
+#     enrollment_id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+#     student=models.ForeignKey(Create_User,on_delete=models.CASCADE,related_name='enrolled_students')
+#     course=models.ForeignKey(Courses_Model,on_delete=models.CASCADE,related_name='enrolled_courses')
+#     enrollment_date=models.DateField(auto_now_add=True)
+#     status_choices=[('Interested','Interested'),('NotInterested','NotInterested'),('Pending','Pending')]
+#     status=models.CharField(max_length=20,choices=status_choices,default="Pending")
+#     def __str__(self):
+#         return str(self.enrollment_id)

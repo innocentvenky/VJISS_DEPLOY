@@ -321,7 +321,7 @@ class AddInternshipOffers(GenericAPIView,CreateModelMixin):
 class InternshipOffers_details(GenericAPIView,ListModelMixin):
     serializer_class=InternshipOffers_serializer
     queryset=InternshipOffers.objects.all()
-    permission_classes=[IsAuthenticated]
+    
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
 #modify internship offers
@@ -534,7 +534,7 @@ class AddTrainers(GenericAPIView,CreateModelMixin):
 class TrainersDetails(GenericAPIView,ListModelMixin):
     serializer_class=About_Trainers_serializer
     queryset=About_Trainers.objects.all()
-    permission_classes=[IsAuthenticated]
+  
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
     

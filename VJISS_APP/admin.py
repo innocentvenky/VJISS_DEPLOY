@@ -138,7 +138,7 @@ admin.site.register(Student_Enrollment,Student_EnrollmentAdmin)
 
 
 class Batch_EnrollmentAdmin(admin.ModelAdmin):
-    list_display=['student_name','batch_id','enrollment_date', 'phone_number','email','batch_type',"batch_time"]
+    list_display=['student_name','batch_id','enrollment_date','status' ,'phone_number','email','batch_type',"batch_time"]
     def student_name(self, obj):
         return obj.student.first_name + ' ' + obj.student.last_name
     def batch_id(self, obj):

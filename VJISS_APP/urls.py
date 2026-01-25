@@ -13,6 +13,9 @@ from . views import NewBacthAdding,BacthDetails,BatchUpdate,Batchdelete
 from . views import StudentEnrollmentView,StudentEnrollment,StudentEnrollmentModify,StudentEnrollmentDelete
 from . views import BatchEnrollment,BatchEnrollmentView,BatchEnrollmentModify,BatchEnrollmentDelete
 
+
+from . import views
+
 # endpoints URLS
 urlpatterns=[
     path("VJISS/create_user/",Create_Users.as_view()),
@@ -79,5 +82,11 @@ urlpatterns=[
     path("VJISS/batch_enrollment_details/",BatchEnrollmentView.as_view()),
     path("VJISS/modify_batch_enrollment/<str:pk>",BatchEnrollmentModify.as_view()),
     path("VJISS/delete_batch_enrollment/<str:pk>",BatchEnrollmentDelete.as_view()),
+
+
+
+
+
 ]
+
         

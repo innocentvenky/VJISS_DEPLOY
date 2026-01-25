@@ -731,3 +731,5 @@ class BatchEnrollmentDelete(GenericAPIView,DestroyModelMixin):
     def delete(self,request,*args,**kwargs):
         self.destroy(request,*args,**kwargs)
         return Response({'message':"Deleted Successfully"},status=status.HTTP_204_NO_CONTENT)
+
+

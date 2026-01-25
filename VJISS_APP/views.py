@@ -735,3 +735,7 @@ class BatchEnrollmentDelete(GenericAPIView,DestroyModelMixin):
         return Response({'message':"Deleted Successfully"},status=status.HTTP_204_NO_CONTENT)
 
 
+from django.http import JsonResponse
+
+def home(request):
+    return JsonResponse({"status": "running"})

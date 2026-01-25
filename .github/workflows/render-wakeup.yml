@@ -1,0 +1,14 @@
+name: Wake up Render
+
+on:
+  schedule:
+    - cron: "*/9 * * * *"   # every 9 minutes
+  workflow_dispatch:
+
+jobs:
+  wakeup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render app
+        run: |
+          curl -s https://vjinnovative-company.onrender.com/wake/

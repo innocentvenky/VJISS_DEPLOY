@@ -12,7 +12,7 @@ from . mail_services.opt import SendOtp
 from . views import NewBacthAdding,BacthDetails,BatchUpdate,Batchdelete
 from . views import StudentEnrollmentView,StudentEnrollment,StudentEnrollmentModify,StudentEnrollmentDelete
 from . views import BatchEnrollment,BatchEnrollmentView,BatchEnrollmentModify,BatchEnrollmentDelete
-
+from . views import home
 
 from . import views
 
@@ -84,7 +84,7 @@ urlpatterns=[
     path("VJISS/delete_batch_enrollment/<str:pk>",BatchEnrollmentDelete.as_view()),
 
 
-
+    path("wake/",home)
 
 
 ]

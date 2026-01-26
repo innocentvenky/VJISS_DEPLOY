@@ -469,9 +469,9 @@ class ModifyApplication(GenericAPIView,UpdateModelMixin):
 
 
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs) 
+        return self.update(request,*args,**kwargs,partial=True) 
     
 
 
@@ -479,6 +479,7 @@ class ModifyApplication(GenericAPIView,UpdateModelMixin):
 
 
   #delete application   
+
 class DeleteApplication(GenericAPIView,DestroyModelMixin):
     serializer_class=Apply_Internship_serializer
     queryset=Apply_Internship.objects.all()

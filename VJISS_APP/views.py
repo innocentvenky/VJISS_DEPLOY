@@ -210,7 +210,7 @@ class AddCourse(GenericAPIView,CreateModelMixin):
 class Course_details(GenericAPIView,ListModelMixin):
     serializer_class=Course_serializer
     queryset=Courses_Model.objects.all()
-    permission_classes=[IsAuthenticated]
+
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
     
@@ -390,7 +390,7 @@ class InternshipApplication(GenericAPIView):
 #view to see all applications (admin only)
 class ViewApplications(GenericAPIView,ListModelMixin):
     serializer_class=Apply_Internship_serializer
-    #permission_classes=[IsAuthenticated]
+    permission_classes=[IsAuthenticated]
     def get_queryset(self):
         if self.request.user.is_superuser or self.request.user.is_staff:
             return Apply_Internship.objects.select_related('student','internship_offers').order_by('-applied_on')
@@ -500,7 +500,7 @@ class AddJobNotification(GenericAPIView,CreateModelMixin):
 class JobNotificationDetails(GenericAPIView,ListModelMixin):
     serializer_class=Job_Notifications_serializer
     queryset=Job_Notifications.objects.all()
-    permission_classes=[IsAuthenticated]
+    
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
     
@@ -599,7 +599,7 @@ class NewBacthAdding(GenericAPIView,CreateModelMixin):
 class BacthDetails(GenericAPIView,ListModelMixin):
     serializer_class=NewBatchModel_serializer
     queryset=NewBatchs.objects.all()
-    permission_classes=[IsAuthenticated]
+    
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
     
